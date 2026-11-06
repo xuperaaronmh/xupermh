@@ -2,6 +2,8 @@
 
 Guía paso a paso. Se hace **una sola vez**: después XuperMH se actualiza sola desde el TV.
 
+> 🌐 También está en la página **[xupermh.pages.dev](https://xupermh.pages.dev)**, más cómoda desde el celular (con botones para copiar los comandos).
+
 **Lo que necesitas**
 
 - Un TV **LG con webOS** conectado a internet.
