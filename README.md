@@ -49,8 +49,8 @@ Se hace **una sola vez** y hay dos caminos:
 
 | | Camino | Qué necesitas |
 |---|---|---|
-| 📱 | **Celular Android** con Termux | El celular en el mismo Wi-Fi que el TV |
-| 💻 | **PC con Windows 10/11** | La PC en el mismo Wi-Fi que el TV |
+| 📱 | **Celular Android** con Termux | El celular en el mismo Wi-Fi que el TV · [instalador para Termux](instalar-termux.sh) |
+| 💻 | **PC con Windows 10/11** | La PC en el mismo Wi-Fi que el TV · **[⬇️ descargar el instalador para PC (.zip)](https://github.com/xuperaaronmh/xupermh/releases/latest/download/XuperMH-Instalador-PC.zip)** |
 
 👉 **[Ver el tutorial completo con imágenes](TUTORIAL.md)**
 

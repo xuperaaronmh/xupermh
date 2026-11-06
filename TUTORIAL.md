@@ -80,9 +80,9 @@ La próxima vez que lo necesites, basta con abrir Termux y escribir `bash instal
 
 ### Camino B · Desde una PC con Windows
 
-1. Entra a la [última versión](https://github.com/xuperaaronmh/xupermh/releases/latest) y descarga dos archivos:
-   - **`XuperMH-Instalador-PC.zip`**;
-   - **`XuperMH-vX.X.X.ipk`** (la app).
+1. Descarga dos archivos:
+   - **[⬇️ XuperMH-Instalador-PC.zip](https://github.com/xuperaaronmh/xupermh/releases/latest/download/XuperMH-Instalador-PC.zip)**: el instalador. Se descarga con un clic.
+   - **`XuperMH-vX.X.X.ipk`** (la app): entra a la **[última versión](https://github.com/xuperaaronmh/xupermh/releases/latest)**, baja hasta **Assets** y haz clic en el archivo que termina en `.ipk`. No bajes el `.sig`.
 2. Haz clic derecho sobre el ZIP → **Extraer todo…**. No lo abras desde dentro del ZIP.
 3. Mueve el archivo `.ipk` **a la misma carpeta** que extrajiste.
 4. Haz doble clic en **`INSTALAR-XUPERMH.bat`**.
