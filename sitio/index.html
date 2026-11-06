@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XuperMH para TV LG webOS</title>
+<meta name="description" content="XuperMH, versión mejorada de XuperTV para televisores LG webOS, por AarónMH. Descarga e instalación paso a paso desde el celular o la PC.">
+<meta property="og:title" content="XuperMH para TV LG webOS">
+<meta property="og:description" content="Descarga XuperMH e instálala en tu LG paso a paso, desde el celular Android o la PC.">
+<meta property="og:image" content="img/portada.jpg">
+<meta name="theme-color" content="#08111d">
+<link rel="icon" href="img/icono.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#08111d; --card:#112237; --line:#1f3550;
+    --ink:#eef3f9; --soft:#a8b6c7; --blue:#3d9bff; --blue2:#1f6feb;
+    --ok:#3fb950; --warn:#e8a317; --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue)}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  .top{position:sticky;top:0;z-index:10;background:rgba(8,17,29,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;gap:14px;height:58px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1px;color:var(--ink);text-decoration:none}
+  .logo svg{width:30px;height:30px}
+  .nav{margin-left:auto;display:flex;gap:4px}
+  .nav a{color:var(--soft);text-decoration:none;font-size:15px;padding:6px 10px;border-radius:8px;white-space:nowrap}
+  .nav a:hover{color:var(--ink);background:var(--card)}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero{background:radial-gradient(ellipse at 50% 0%,#174a85 0%,#0c2747 45%,var(--bg) 100%)}
+  .hero .bgimg{position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(8,17,29,.6))}
+  .hero .wrap{position:relative;padding:72px 16px 64px;text-align:center}
+  .hero h1{font-size:clamp(34px,7vw,58px);line-height:1.1;margin:0 0 12px;letter-spacing:-.5px}
+  .hero h1 b{color:var(--blue)}
+  .lede{font-size:clamp(17px,2.6vw,21px);color:var(--soft);max-width:640px;margin:0 auto 26px}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:17px;border:1px solid transparent}
+  .btn.pri{background:var(--blue2);color:#fff}
+  .btn.pri:hover{background:#2a7cf5}
+  .btn.sec{border-color:var(--line);color:var(--ink)}
+  .btn.sec:hover{background:var(--card)}
+  .ver{margin-top:18px;font-size:15px;color:var(--soft);min-height:24px}
+  .ver b{color:var(--ink)}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(26px,4vw,34px);margin:0 0 8px;letter-spacing:-.3px}
+  .sub{color:var(--soft);margin:0 0 28px;max-width:720px}
+  h3{font-size:20px;margin:0 0 8px}
+  h3.paso{font-size:24px;margin:34px 0 14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+  .shot{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#000}
+  figure{margin:0}
+  figcaption{color:var(--soft);font-size:14px;margin-top:8px;text-align:center}
+  .feat .ic{font-size:26px;line-height:1;margin-bottom:10px}
+  .feat p{margin:0;color:var(--soft);font-size:16px}
+  ul.need{margin:6px 0 0;padding-left:20px;color:var(--soft)}
+  ul.need b{color:var(--ink)}
+  ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+  ol.steps>li{counter-increment:s;position:relative;padding:0 0 22px 52px;min-width:0}
+  ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--blue2);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  ol.steps>li:last-child{padding-bottom:0}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .tab{background:var(--card);border:1px solid var(--line);color:var(--soft);padding:10px 16px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--blue2);border-color:var(--blue2);color:#fff}
+  .panel[hidden]{display:none}
+  .cmd{display:flex;align-items:stretch;margin:10px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#050b14;max-width:100%}
+  .cmd code{flex:1;min-width:0;padding:12px 14px;font:14px/1.5 ui-monospace,Consolas,monospace;color:#d6e6ff;overflow-x:auto;white-space:nowrap}
+  .cmd button{flex:0 0 auto;border:0;border-left:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;font-weight:700;padding:0 14px;cursor:pointer;min-width:88px}
+  .cmd button.ok{color:var(--ok)}
+  .note{border-left:4px solid var(--warn);background:#1d1a10;padding:12px 16px;border-radius:8px;color:#f1e3c2;margin:16px 0;font-size:16px}
+  .note.info{border-color:var(--blue);background:#0f2036;color:#d3e5fb}
+  pre.term{background:#050b14;border:1px solid var(--line);border-radius:10px;padding:14px;font:13px/1.55 ui-monospace,Consolas,monospace;color:#cfe0f5;overflow-x:auto;margin:12px 0 0;max-width:100%}
+  pre.term .v{color:var(--ok)}
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--soft);font-weight:600;font-size:14px}
+  td:first-child{font-weight:600;width:38%}
+  details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700}
+  details p{margin:10px 0 0;color:var(--soft)}
+  footer{padding:32px 0 48px;color:var(--soft);font-size:14px;text-align:center}
+  .tag{display:inline-block;background:#21262d;color:var(--soft);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;margin-left:6px;vertical-align:middle}
+  @media (max-width:760px){
+    .grid2,.grid3{grid-template-columns:1fr}
+    .nav a.hide-m{display:none}
+    section{padding:44px 0}
+    .hero .wrap{padding:52px 16px 48px}
+    table,thead,tbody,tr,td{display:block}
+    thead{display:none}
+    tr{border-bottom:1px solid var(--line);padding:10px 0}
+    td{border:0;padding:4px 0}
+    td:first-child{width:auto}
+    ol.steps>li{padding-left:46px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18Z" fill="none" stroke="#3d9bff" stroke-width="5" stroke-linejoin="round"/><text x="32" y="41" text-anchor="middle" font-size="22" font-weight="800" fill="#eef3f9" font-family="Segoe UI,Arial">MH</text></svg>
+      XuperMH
+    </a>
+    <nav class="nav">
+      <a href="#instalar">Instalar</a>
+      <a href="#capturas" class="hide-m">Capturas</a>
+      <a href="#problemas">Ayuda</a>
+      <a href="#reportar" class="hide-m">Reportar</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="bgimg"></div>
+  <div class="wrap">
+    <h1>Xuper<b>MH</b> para tu TV LG</h1>
+    <p class="lede">Canales en vivo, películas y series en televisores LG webOS. Versión mejorada de XuperTV por AarónMH.</p>
+    <div class="btns">
+      <a class="btn pri" id="btn-descargar" href="#instalar">⬇ Descargar e instalar</a>
+      <a class="btn sec" href="https://github.com/xuperaaronmh/xupermh/releases/latest" rel="noopener">Ver versiones</a>
+    </div>
+    <div class="ver" id="ver">Buscando la última versión…</div>
+  </div>
+</div>
+
+<main>
+
+<section id="que-trae">
+  <div class="wrap">
+    <h2>Qué trae</h2>
+    <p class="sub">Pensada para que funcione bien también en los LG más viejos.</p>
+    <div class="grid3">
+      <div class="card feat"><div class="ic">📡</div><h3>Todo en un lugar</h3><p>TV en vivo, películas, series, kids, anime y novelas, con favoritos e historial.</p></div>
+      <div class="card feat"><div class="ic">⚡</div><h3>Sin congelarse</h3><p>Varios servidores de respaldo. Si uno falla, cambia solo en segundos.</p></div>
+      <div class="card feat"><div class="ic">🎞️</div><h3>Modo fluido</h3><p>Para TV antiguos que no reproducen ciertos videos.</p></div>
+      <div class="card feat"><div class="ic">🔄</div><h3>Se actualiza sola</h3><p>Avisa cuando hay versión nueva. Las descargas van firmadas: solo acepta archivos originales.</p></div>
+      <div class="card feat"><div class="ic">🌗</div><h3>Tema oscuro y claro</h3><p>Elige cómo se ve desde Configuración → Apariencia.</p></div>
+      <div class="card feat"><div class="ic">🩺</div><h3>Diagnóstico</h3><p>Revisa la conexión, el TV y el reproductor para saber qué falla.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="capturas">
+  <div class="wrap">
+    <h2>Así se ve</h2>
+    <p class="sub">Capturas reales de la app.</p>
+    <div class="grid2">
+      <figure><div class="shot"><img src="img/inicio.jpg" alt="Pantalla de inicio con canales en vivo" loading="lazy" width="1280" height="720"></div><figcaption>Inicio, con la versión junto a "Modificado: AarónMH"</figcaption></figure>
+      <figure><div class="shot"><img src="img/pelicula.jpg" alt="Ficha de una película" loading="lazy" width="1280" height="720"></div><figcaption>Ficha de película</figcaption></figure>
+    </div>
+    <figure style="margin-top:16px"><div class="shot"><img src="img/temas.jpg" alt="Tema oscuro y tema claro" loading="lazy" width="1280" height="726"></div><figcaption>Tema oscuro y tema claro</figcaption></figure>
+  </div>
+</section>
+
+<section id="instalar">
+  <div class="wrap">
+    <h2>Cómo instalar</h2>
+    <p class="sub">Se hace <b>una sola vez</b>, en unos 15 minutos. Después XuperMH se actualiza sola desde el TV.</p>
+
+    <div class="card">
+      <h3>Lo que necesitas</h3>
+      <ul class="need">
+        <li>Un TV <b>LG con webOS</b> conectado a internet.</li>
+        <li>Un <b>celular Android</b> o una <b>PC con Windows 10/11</b>, en el <b>mismo Wi-Fi</b> que el TV.</li>
+        <li>Una <b>cuenta LG</b> (gratis; se crea desde el TV).</li>
+      </ul>
+      <div class="note info" style="margin-bottom:0">iPhone no sirve para instalar: Apple no permite este tipo de herramienta.</div>
+    </div>
+
+    <h3 class="paso">Paso 1 · Activa el Modo Desarrollador en el TV</h3>
+    <div class="grid2" style="align-items:start">
+      <ol class="steps">
+        <li>En el TV abre <b>LG Content Store</b>.</li>
+        <li>Busca <b>Developer Mode</b>, instálala y ábrela.</li>
+        <li>Inicia sesión con tu cuenta LG (o créala ahí mismo).</li>
+        <li>Activa <b>Dev Mode Status</b>. El TV se reinicia.</li>
+        <li>Abre otra vez <b>Developer Mode</b> y deja <b>Key Server</b> en <b>ON</b>.</li>
+        <li>Anota la <b>IP</b> y la <b>Passphrase</b> (6 caracteres; mayúsculas y minúsculas cuentan).</li>
+      </ol>
+      <figure><img src="img/devmode.svg" alt="Pantalla de Developer Mode con la IP, la Passphrase y Key Server marcados" width="960" height="560" style="border-radius:var(--r)"><figcaption>Ilustración: los datos de tu TV serán otros.</figcaption></figure>
+    </div>
+
+    <h3 class="paso">Paso 2 · Instala XuperMH</h3>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-cel" id="t-cel">📱 Desde el celular</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-pc" id="t-pc">💻 Desde la PC</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-app" id="t-app">✨ App instaladora</button>
+    </div>
+
+    <div class="panel card" id="p-cel" role="tabpanel" aria-labelledby="t-cel">
+      <ol class="steps">
+        <li>Instala <b>Termux</b> desde <a href="https://f-droid.org/packages/com.termux/" rel="noopener">F-Droid</a> o <a href="https://github.com/termux/termux-app/releases" rel="noopener">GitHub</a>. La de Play Store puede fallar.</li>
+        <li>Abre Termux y pega este comando (descarga el instalador):
+          <div class="cmd"><code>curl -LO https://raw.githubusercontent.com/xuperaaronmh/xupermh/main/instalar-termux.sh</code><button type="button" data-copy>Copiar</button></div>
+        </li>
+        <li>Pega este otro para ejecutarlo:
+          <div class="cmd"><code>bash instalar-termux.sh</code><button type="button" data-copy>Copiar</button></div>
+        </li>
+        <li>Escribe la <b>IP</b> y la <b>Passphrase</b> del TV. El instalador descarga la última versión, <b>comprueba que es el archivo original</b>, la instala y la abre en el TV. Si Termux pregunta algo la primera vez, contesta <b>Y</b>.
+<pre class="term">[4/6] Descargando XuperMH
+   <span class="v">✓ XuperMH descargada y firma comprobada</span>
+[5/6] Subiendo al televisor
+   <span class="v">✓ Copiado al TV</span>
+[6/6] Instalando en el televisor
+   <span class="v">✓ XuperMH instalada</span>
+
+  <span class="v">¡Listo! XuperMH se está abriendo en el TV.</span></pre>
+        </li>
+      </ol>
+    </div>
+
+    <div class="panel card" id="p-pc" role="tabpanel" aria-labelledby="t-pc" hidden>
+      <ol class="steps">
+        <li>Descarga los dos archivos:
+          <div class="btns" style="justify-content:flex-start;margin-top:10px">
+            <a class="btn pri" id="dl-zip" href="https://github.com/xuperaaronmh/xupermh/releases/latest/download/XuperMH-Instalador-PC.zip" rel="noopener">Instalador para PC (.zip)</a>
+            <a class="btn sec" id="dl-ipk" href="https://github.com/xuperaaronmh/xupermh/releases/latest" rel="noopener">La app (.ipk)</a>
+          </div>
+        </li>
+        <li>Clic derecho sobre el ZIP → <b>Extraer todo…</b>. No lo abras desde dentro del ZIP.</li>
+        <li>Mueve el archivo <b>.ipk</b> a la misma carpeta que extrajiste.</li>
+        <li>Doble clic en <b>INSTALAR-XUPERMH.bat</b> y escribe la <b>IP</b> y la <b>Passphrase</b> del TV.</li>
+      </ol>
+      <div class="note" style="margin-bottom:0">Si Windows dice "Windows protegió su PC", pulsa <b>Más información → Ejecutar de todas formas</b>.</div>
+    </div>
+
+    <div class="panel card" id="p-app" role="tabpanel" aria-labelledby="t-app" hidden>
+      <h3>XuperMH Instalador para Android <span class="tag">En preparación</span></h3>
+      <p style="color:var(--soft);margin:0">Una app con un solo botón: escribes la clave del TV y listo. Cuando esté lista aparecerá aquí. Mientras tanto usa el camino del celular con Termux.</p>
+    </div>
+
+    <h3 class="paso">Paso 3 · Mantén el Modo Desarrollador</h3>
+    <div class="note" style="margin-top:0">LG apaga el Modo Desarrollador a las <b>50 horas</b> y, si se vence, <b>el TV borra XuperMH</b>. De vez en cuando abre <b>Developer Mode</b> y pulsa <b>EXTEND</b>. Si ya se borró, repite el Paso 2.</div>
+    <div class="grid2" style="align-items:center">
+      <p style="color:var(--soft);margin:0">Cuando salga una versión nueva, el TV muestra un aviso. Pulsa <b style="color:var(--ink)">Actualizar ahora</b> y luego apaga y enciende el TV.</p>
+      <div class="shot"><img src="img/actualizacion.jpg" alt="Aviso de actualización dentro de la app" loading="lazy" width="1280" height="720"></div>
+    </div>
+  </div>
+</section>
+
+<section id="problemas">
+  <div class="wrap">
+    <h2>Si algo falla</h2>
+    <p class="sub">Los mensajes más comunes del instalador y qué hacer.</p>
+    <table>
+      <thead><tr><th>Mensaje</th><th>Qué hacer</th></tr></thead>
+      <tbody>
+        <tr><td>"El TV no responde en el puerto 9922"</td><td>El TV debe estar encendido y en el mismo Wi-Fi. La IP tiene que ser la de Developer Mode, con <b>Dev Mode Status</b> en ON.</td></tr>
+        <tr><td>"El TV no comparte su llave"</td><td>En Developer Mode activa <b>Key Server</b>.</td></tr>
+        <tr><td>"La clave no es correcta"</td><td>Escríbela igual que en el TV. Si sigue, cierra y abre Developer Mode.</td></tr>
+        <tr><td>"La FIRMA NO COINCIDE"</td><td>El archivo no es el original. No lo instales; descárgalo otra vez desde esta página.</td></tr>
+        <tr><td>"El TV tiene una versión más nueva"</td><td>Desinstala XuperMH del TV y vuelve a instalar.</td></tr>
+        <tr><td>La app se borró sola</td><td>Se venció el Modo Desarrollador. Repite el Paso 2 y pulsa <b>EXTEND</b> de vez en cuando.</td></tr>
+        <tr><td>Video negro o "Conectando…"</td><td>En la película, activa <b>Modo fluido</b>. Si sigue, manda una foto del <b>Diagnóstico</b>.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:34px">Preguntas frecuentes</h3>
+    <details><summary>¿Qué TVs son compatibles?</summary><p>TV LG con webOS que tengan la app Developer Mode de LG. Está probada en webOS 1 a 6. Los TV más viejos pueden necesitar el Modo fluido para algunos videos.</p></details>
+    <details><summary>¿Tengo que instalarla otra vez en cada versión?</summary><p>No. Solo la primera vez. Después la app avisa y se actualiza desde el TV.</p></details>
+    <details><summary>¿Es seguro?</summary><p>Cada versión va firmada digitalmente. El TV y los instaladores comprueban la firma antes de instalar y rechazan cualquier archivo alterado. La clave de tu TV no se guarda en ningún lado.</p></details>
+    <details><summary>¿Puedo instalarla desde un iPhone?</summary><p>No. Usa un celular Android o una PC con Windows.</p></details>
+  </div>
+</section>
+
+<section id="reportar">
+  <div class="wrap">
+    <h2>Reportar un problema</h2>
+    <ol class="steps">
+      <li>Toma una <b>foto de la pantalla de inicio</b>: ahí sale la versión.</li>
+      <li>Abre <b>Configuración → Diagnóstico</b>, pulsa <b>Analizar de nuevo</b> y toma otra foto.</li>
+      <li>Mándalas a <a href="mailto:xuperaaronmh@gmail.com">xuperaaronmh@gmail.com</a> con el modelo de tu TV y qué pasó.</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    XuperMH por AarónMH · <a href="https://github.com/xuperaaronmh/xupermh" rel="noopener">Código y versiones en GitHub</a><br>
+    Proyecto independiente, no afiliado a LG Electronics. "LG" y "webOS" son marcas de sus respectivos dueños.
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var tabs = document.querySelectorAll(".tab");
+  function pick(t) {
+    for (var i = 0; i < tabs.length; i++) {
+      var on = tabs[i] === t;
+      tabs[i].setAttribute("aria-selected", on ? "true" : "false");
+      document.getElementById(tabs[i].getAttribute("aria-controls")).hidden = !on;
+    }
+  }
+  for (var i = 0; i < tabs.length; i++) tabs[i].addEventListener("click", function () { pick(this); });
+  // Desde una PC con Windows, mostrar primero la pestaña de PC.
+  if (/Windows NT/.test(navigator.userAgent)) pick(document.getElementById("t-pc"));
+
+  var copies = document.querySelectorAll("[data-copy]");
+  for (var j = 0; j < copies.length; j++) copies[j].addEventListener("click", function () {
+    var b = this, code = b.previousElementSibling, txt = code.textContent;
+    function done(ok) {
+      b.textContent = ok ? "Copiado" : "Mantén pulsado"; b.className = ok ? "ok" : "";
+      setTimeout(function () { b.textContent = "Copiar"; b.className = ""; }, 2000);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(txt).then(function () { done(true); }, function () { done(false); });
+    } else {
+      var r = document.createRange(); r.selectNodeContents(code);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { done(document.execCommand("copy")); } catch (e) { done(false); }
+    }
+  });
+
+  // Última versión desde GitHub. Si falla, los enlaces van a la página de versiones.
+  var ver = document.getElementById("ver");
+  fetch("https://api.github.com/repos/xuperaaronmh/xupermh/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
+    .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    .then(function (j) {
+      var ipk = null, zip = null;
+      (j.assets || []).forEach(function (a) {
+        if (/^XuperMH-v\d+(?:\.\d+)*\.ipk$/.test(a.name)) ipk = a;
+        if (a.name === "XuperMH-Instalador-PC.zip") zip = a;
+      });
+      var v = String(j.tag_name || "").replace(/^v/, "");
+      var f = j.published_at ? new Date(j.published_at).toLocaleDateString("es", { day: "numeric", month: "long", year: "numeric" }) : "";
+      ver.textContent = "";
+      var b = document.createElement("b"); b.textContent = "v" + v;
+      ver.appendChild(document.createTextNode("Última versión: ")); ver.appendChild(b);
+      if (f) ver.appendChild(document.createTextNode(" · " + f));
+      if (ipk) {
+        ver.appendChild(document.createTextNode(" · " + (ipk.size / 1048576).toFixed(1) + " MB"));
+        var di = document.getElementById("dl-ipk");
+        di.href = ipk.browser_download_url; di.textContent = "La app (" + ipk.name + ")";
+      }
+      if (zip) document.getElementById("dl-zip").href = zip.browser_download_url;
+    })
+    .catch(function () { ver.textContent = "Mira la última versión en GitHub."; });
+})();
+</script>
+</body>
+</html>
