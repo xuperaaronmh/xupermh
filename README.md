@@ -40,7 +40,7 @@
 - ⚡ **Rápida y sin congelarse**: varios servidores de respaldo; si uno falla, cambia solo en segundos.
 - 🎞️ **Modo fluido** para TV antiguos que no reproducen ciertos videos.
 - 🌗 **Tema oscuro y tema claro.**
-- 🩺 **Diagnóstico** dentro de la app: ficha del TV, servidores, H.265, reloj, memoria y reproductor.
+- 🩺 **Diagnóstico** dentro de la app: por qué falla cada servidor, prueba de video, Wi-Fi o cable, memoria y espacio del TV, y envío de reportes con un botón.
 - 🔄 **Se actualiza sola**, con descargas **firmadas digitalmente**: el TV solo acepta archivos originales.
 - 🔢 La **versión aparece en la pantalla de inicio**, para que sea fácil reportar.
 
@@ -71,6 +71,19 @@ TV LG con **webOS** que tengan la app **Developer Mode** de LG. Probada en webOS
 2. Abre **Configuración → Diagnóstico**, pulsa **Analizar de nuevo** y toma otra foto.
 3. Mándalas a **xuperaaronmh@gmail.com** con el modelo de tu TV y qué pasó.
 
+## Créditos y licencia
+
+XuperMH es una **modificación derivada** del port original de XuperTV para LG webOS hecho por **CristiancoDEV (webosflux)**:
+
+- Repositorio original: [cristianco7/XUPER-HYDRA-PORT-WEBOS](https://github.com/cristianco7/XUPER-HYDRA-PORT-WEBOS)
+- Copyright (c) 2026 cristianco7
+
+Las mejoras de XuperMH son de **AarónMH** (Copyright (c) 2026 AarónMH), en [xuperaaronmh/xupermh](https://github.com/xuperaaronmh/xupermh). Entre ellas: recuperación del video en vivo, diagnóstico de red, Modo Fluido, Modo Ligero, versión para TV de 720p y actualización desde la app.
+
+Todo se distribuye bajo la **licencia MIT**. El texto completo está en [LICENSE](LICENSE).
+
+El identificador de la app (`com.webosflux.xuptertv.fidelity`) se mantiene, con permiso del autor original, para que los usuarios puedan actualizar sin perder nada.
+
 ---
 
-<sub>XuperMH es un proyecto independiente. No está afiliado a LG Electronics. "LG" y "webOS" son marcas de sus respectivos dueños.</sub>
+<sub>XuperMH es un proyecto independiente. No está afiliado a LG Electronics. "LG" y "webOS" son marcas de sus respectivos dueños. Licencia MIT: ver [LICENSE](LICENSE).</sub>
