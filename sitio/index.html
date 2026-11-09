@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>XuperMH para TV LG webOS</title>
-<meta name="description" content="XuperMH, versión mejorada de XuperTV para televisores LG webOS, por AarónMH. Descarga e instalación paso a paso desde el celular o la PC.">
+<meta name="description" content="XuperMH, versión mejorada de XuperTV para televisores LG webOS, por AarónMH. Descarga e instalación paso a paso desde tu celular Android.">
 <meta property="og:title" content="XuperMH para TV LG webOS">
-<meta property="og:description" content="Descarga XuperMH e instálala en tu LG paso a paso, desde el celular Android o la PC.">
+<meta property="og:description" content="Descarga XuperMH e instálala en tu LG paso a paso con la app XuperMH Instalador para Android.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://xupermh.pages.dev/">
 <meta property="og:image" content="https://xupermh.pages.dev/img/portada.jpg">
@@ -69,10 +69,6 @@
   ol.steps>li{counter-increment:s;position:relative;padding:0 0 22px 52px;min-width:0}
   ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--blue2);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
   ol.steps>li:last-child{padding-bottom:0}
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-  .tab{background:var(--card);border:1px solid var(--line);color:var(--soft);padding:10px 16px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
-  .tab[aria-selected="true"]{background:var(--blue2);border-color:var(--blue2);color:#fff}
-  .panel[hidden]{display:none}
   .cmd{display:flex;align-items:stretch;margin:10px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#050b14;max-width:100%}
   .cmd code{flex:1;min-width:0;padding:12px 14px;font:14px/1.5 ui-monospace,Consolas,monospace;color:#d6e6ff;overflow-x:auto;white-space:nowrap}
   .cmd button{flex:0 0 auto;border:0;border-left:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;font-weight:700;padding:0 14px;cursor:pointer;min-width:88px}
@@ -175,7 +171,7 @@
       <h3>Lo que necesitas</h3>
       <ul class="need">
         <li>Un TV <b>LG con webOS</b> conectado a internet.</li>
-        <li>Un <b>celular Android</b> o una <b>PC con Windows 10/11</b>, en el <b>mismo Wi-Fi</b> que el TV.</li>
+        <li>Un <b>celular Android</b> (Android 7 o más nuevo) en el <b>mismo Wi-Fi</b> que el TV.</li>
         <li>Una <b>cuenta LG</b> (gratis; se crea desde el TV).</li>
       </ul>
       <div class="note info" style="margin-bottom:0">iPhone no sirve para instalar: Apple no permite este tipo de herramienta.</div>
@@ -195,56 +191,23 @@
     </div>
 
     <h3 class="paso">Paso 2 · Instala XuperMH</h3>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p-cel" id="t-cel">📱 Desde el celular</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-pc" id="t-pc">💻 Desde la PC</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-app" id="t-app">✨ App instaladora</button>
-    </div>
-
-    <div class="panel card" id="p-cel" role="tabpanel" aria-labelledby="t-cel">
+    <div class="card">
       <ol class="steps">
-        <li>Instala <b>Termux</b> desde <a href="https://f-droid.org/packages/com.termux/" rel="noopener">F-Droid</a> o <a href="https://github.com/termux/termux-app/releases" rel="noopener">GitHub</a>. La de Play Store puede fallar.</li>
-        <li>Abre Termux y pega este comando (descarga el instalador):
-          <div class="cmd"><code>curl -LO https://raw.githubusercontent.com/xuperaaronmh/xupermh/main/instalar-termux.sh</code><button type="button" data-copy>Copiar</button></div>
-        </li>
-        <li>Pega este otro para ejecutarlo:
-          <div class="cmd"><code>bash instalar-termux.sh</code><button type="button" data-copy>Copiar</button></div>
-        </li>
-        <li>Escribe la <b>IP</b> y la <b>Passphrase</b> del TV. El instalador descarga la última versión, <b>comprueba que es el archivo original</b>, la instala y la abre en el TV. Si Termux pregunta algo la primera vez, contesta <b>Y</b>.
-<pre class="term">[4/6] Descargando XuperMH
-   <span class="v">✓ XuperMH descargada y firma comprobada</span>
-[5/6] Subiendo al televisor
-   <span class="v">✓ Copiado al TV</span>
-[6/6] Instalando en el televisor
-   <span class="v">✓ XuperMH instalada</span>
-
-  <span class="v">¡Listo! XuperMH se está abriendo en el TV.</span></pre>
-        </li>
-      </ol>
-    </div>
-
-    <div class="panel card" id="p-pc" role="tabpanel" aria-labelledby="t-pc" hidden>
-      <ol class="steps">
-        <li>Descarga los dos archivos:
+        <li>En el celular, descarga la app:
           <div class="btns" style="justify-content:flex-start;margin-top:10px">
-            <a class="btn pri" id="dl-zip" href="https://github.com/xuperaaronmh/xupermh/releases/latest/download/XuperMH-Instalador-PC.zip" rel="noopener">Instalador para PC (.zip)</a>
-            <a class="btn sec" id="dl-ipk" href="https://github.com/xuperaaronmh/xupermh/releases/latest" rel="noopener">La app (.ipk)</a>
+            <a class="btn pri" id="dl-apk" href="https://github.com/xuperaaronmh/xupermh/releases/latest/download/XuperMH-Instalador.apk" rel="noopener">⬇ XuperMH Instalador (.apk)</a>
           </div>
         </li>
-        <li>Clic derecho sobre el ZIP → <b>Extraer todo…</b>. No lo abras desde dentro del ZIP.</li>
-        <li>Mueve el archivo <b>.ipk</b> a la misma carpeta que extrajiste.</li>
-        <li>Doble clic en <b>INSTALAR-XUPERMH.bat</b> y escribe la <b>IP</b> y la <b>Passphrase</b> del TV.</li>
+        <li>Abre el archivo descargado. Si Android pregunta, permite <b>instalar apps de esta fuente</b> y pulsa <b>Instalar</b>.</li>
+        <li>Abre <b>XuperMH Instalador</b>. Busca solo los televisores de tu Wi-Fi: elige el tuyo con <b>Elegir →</b>, o escribe la <b>IP</b> a mano.</li>
+        <li>Escribe la <b>Passphrase</b> del TV y pulsa <b>Instalar XuperMH</b>. La app descarga la última versión, <b>comprueba que es el archivo original</b> y la instala. Tarda entre 30 segundos y 2 minutos.</li>
+        <li>Cuando diga <b>¡XuperMH quedó instalada!</b>, pulsa <b>▶ Abrir en el televisor</b>.</li>
       </ol>
-      <div class="note" style="margin-bottom:0">Si Windows dice "Windows protegió su PC", pulsa <b>Más información → Ejecutar de todas formas</b>.</div>
-    </div>
-
-    <div class="panel card" id="p-app" role="tabpanel" aria-labelledby="t-app" hidden>
-      <h3>XuperMH Instalador para Android <span class="tag">En preparación</span></h3>
-      <p style="color:var(--soft);margin:0">Una app con un solo botón: escribes la clave del TV y listo. Cuando esté lista aparecerá aquí. Mientras tanto usa el camino del celular con Termux.</p>
+      <div class="note" style="margin-bottom:0">Si Play Protect avisa que la app es desconocida, pulsa <b>Más detalles → Instalar de todas formas</b>. La app va firmada por AarónMH; descárgala solo desde esta página.</div>
     </div>
 
     <h3 class="paso">Paso 3 · Mantén el Modo Desarrollador</h3>
-    <div class="note" style="margin-top:0">LG apaga el Modo Desarrollador a las <b>50 horas</b> y, si se vence, <b>el TV borra XuperMH</b>. De vez en cuando abre <b>Developer Mode</b> y pulsa <b>EXTEND</b>. Si ya se borró, repite el Paso 2.</div>
+    <div class="note" style="margin-top:0">LG apaga el Modo Desarrollador a las <b>50 horas</b> y, si se vence, <b>el TV borra XuperMH</b>. De vez en cuando abre <b>Developer Mode</b> y pulsa <b>EXTEND</b>, o usa el botón <b>⏱️ Extender Modo Desarrollador</b> de XuperMH Instalador. Si ya se borró, repite el Paso 2.</div>
     <div class="grid2" style="align-items:center">
       <p style="color:var(--soft);margin:0">Cuando salga una versión nueva, el TV muestra un aviso. Pulsa <b style="color:var(--ink)">Actualizar ahora</b> y luego apaga y enciende el TV.</p>
       <div class="shot"><img src="img/actualizacion.jpg" alt="Aviso de actualización dentro de la app" loading="lazy" width="1280" height="720"></div>
@@ -255,15 +218,16 @@
 <section id="problemas">
   <div class="wrap">
     <h2>Si algo falla</h2>
-    <p class="sub">Los mensajes más comunes del instalador y qué hacer.</p>
+    <p class="sub">Los mensajes más comunes de XuperMH Instalador y qué hacer.</p>
     <table>
       <thead><tr><th>Mensaje</th><th>Qué hacer</th></tr></thead>
       <tbody>
-        <tr><td>"El TV no responde en el puerto 9922"</td><td>El TV debe estar encendido y en el mismo Wi-Fi. La IP tiene que ser la de Developer Mode, con <b>Dev Mode Status</b> en ON.</td></tr>
-        <tr><td>"El TV no comparte su llave"</td><td>En Developer Mode activa <b>Key Server</b>.</td></tr>
-        <tr><td>"La clave no es correcta"</td><td>Escríbela igual que en el TV. Si sigue, cierra y abre Developer Mode.</td></tr>
-        <tr><td>"La FIRMA NO COINCIDE"</td><td>El archivo no es el original. No lo instales; descárgalo otra vez desde esta página.</td></tr>
-        <tr><td>"El TV tiene una versión más nueva"</td><td>Desinstala XuperMH del TV y vuelve a instalar.</td></tr>
+        <tr><td>No aparece ningún televisor</td><td>El TV debe estar encendido, en el mismo Wi-Fi que el celular y con <b>Dev Mode Status</b> en ON. Si sigue, escribe a mano la IP que muestra Developer Mode.</td></tr>
+        <tr><td>"El TV rechazó la conexión"</td><td>En Developer Mode activa <b>Key Server</b>. Revisa que la IP sea la de Developer Mode.</td></tr>
+        <tr><td>"La clave no es correcta, revísala en el TV"</td><td>Escríbela igual que en el TV: mayúsculas y minúsculas cuentan. Si sigue, cierra y abre Developer Mode.</td></tr>
+        <tr><td>"La firma digital … no es válida"</td><td>El archivo no es el original o se dañó al bajar. No se instala nada. Vuelve a intentarlo.</td></tr>
+        <tr><td>"La TV rechazó el paquete… versión igual o menor instalada"</td><td>Pulsa <b>🗑️ Desinstalar XuperMH</b> en la app y vuelve a instalar.</td></tr>
+        <tr><td>"El TV no tiene espacio libre"</td><td>Borra apps del TV que no uses y reintenta.</td></tr>
         <tr><td>La app se borró sola</td><td>Se venció el Modo Desarrollador. Repite el Paso 2 y pulsa <b>EXTEND</b> de vez en cuando.</td></tr>
         <tr><td>Video negro o "Conectando…"</td><td>En la película, activa <b>Modo fluido</b>. Si sigue, manda una foto del <b>Diagnóstico</b>.</td></tr>
       </tbody>
@@ -273,7 +237,7 @@
     <details><summary>¿Qué TVs son compatibles?</summary><p>TV LG con webOS que tengan la app Developer Mode de LG. Está probada en webOS 1 a 6. Los TV más viejos pueden necesitar el Modo fluido para algunos videos.</p></details>
     <details><summary>¿Tengo que instalarla otra vez en cada versión?</summary><p>No. Solo la primera vez. Después la app avisa y se actualiza desde el TV.</p></details>
     <details><summary>¿Es seguro?</summary><p>Cada versión va firmada digitalmente. El TV y los instaladores comprueban la firma antes de instalar y rechazan cualquier archivo alterado. La clave de tu TV no se guarda en ningún lado.</p></details>
-    <details><summary>¿Puedo instalarla desde un iPhone?</summary><p>No. Usa un celular Android o una PC con Windows.</p></details>
+    <details><summary>¿Puedo instalarla desde un iPhone?</summary><p>No. Usa un celular Android.</p></details>
   </div>
 </section>
 
@@ -300,18 +264,6 @@
 <script>
 (function () {
   "use strict";
-  var tabs = document.querySelectorAll(".tab");
-  function pick(t) {
-    for (var i = 0; i < tabs.length; i++) {
-      var on = tabs[i] === t;
-      tabs[i].setAttribute("aria-selected", on ? "true" : "false");
-      document.getElementById(tabs[i].getAttribute("aria-controls")).hidden = !on;
-    }
-  }
-  for (var i = 0; i < tabs.length; i++) tabs[i].addEventListener("click", function () { pick(this); });
-  // Desde una PC con Windows, mostrar primero la pestaña de PC.
-  if (/Windows NT/.test(navigator.userAgent)) pick(document.getElementById("t-pc"));
-
   var copies = document.querySelectorAll("[data-copy]");
   for (var j = 0; j < copies.length; j++) copies[j].addEventListener("click", function () {
     var b = this, code = b.previousElementSibling, txt = code.textContent;
@@ -333,10 +285,9 @@
   fetch("https://api.github.com/repos/xuperaaronmh/xupermh/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
     .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
     .then(function (j) {
-      var ipk = null, zip = null;
+      var apk = null;
       (j.assets || []).forEach(function (a) {
-        if (/^XuperMH-v\d+(?:\.\d+)*\.ipk$/.test(a.name)) ipk = a;
-        if (a.name === "XuperMH-Instalador-PC.zip") zip = a;
+        if (a.name === "XuperMH-Instalador.apk") apk = a;
       });
       var v = String(j.tag_name || "").replace(/^v/, "");
       var f = j.published_at ? new Date(j.published_at).toLocaleDateString("es", { day: "numeric", month: "long", year: "numeric" }) : "";
@@ -344,12 +295,11 @@
       var b = document.createElement("b"); b.textContent = "v" + v;
       ver.appendChild(document.createTextNode("Última versión: ")); ver.appendChild(b);
       if (f) ver.appendChild(document.createTextNode(" · " + f));
-      if (ipk) {
-        ver.appendChild(document.createTextNode(" · " + (ipk.size / 1048576).toFixed(1) + " MB"));
-        var di = document.getElementById("dl-ipk");
-        di.href = ipk.browser_download_url; di.textContent = "La app (" + ipk.name + ")";
+      if (apk) {
+        var da = document.getElementById("dl-apk");
+        da.href = apk.browser_download_url;
+        da.textContent = "⬇ XuperMH Instalador (.apk, " + (apk.size / 1048576).toFixed(1) + " MB)";
       }
-      if (zip) document.getElementById("dl-zip").href = zip.browser_download_url;
     })
     .catch(function () { ver.textContent = "Mira la última versión en GitHub."; });
 })();
