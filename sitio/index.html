@@ -230,8 +230,46 @@
         <tr><td>"El TV no tiene espacio libre"</td><td>Borra apps del TV que no uses y reintenta.</td></tr>
         <tr><td>La app se borró sola</td><td>Se venció el Modo Desarrollador. Repite el Paso 2 y pulsa <b>EXTEND</b> de vez en cuando.</td></tr>
         <tr><td>Video negro o "Conectando…"</td><td>En la película, activa <b>Modo fluido</b>. Si sigue, manda una foto del <b>Diagnóstico</b>.</td></tr>
+        <tr><td>Con tu internet no carga nada, pero con los datos del celular sí</td><td>Tu proveedor de internet puede estar bloqueando o frenando la conexión. Prueba el <a href="#tunel">túnel con tu celular</a>.</td></tr>
       </tbody>
     </table>
+
+    <h3 id="tunel" class="paso" style="margin-top:34px">Túnel con tu celular: si tu internet bloquea o frena XuperMH</h3>
+    <div class="note info" style="margin-top:0">Disponible desde <b>XuperMH v2.32.7</b>. XuperMH no trae servidores: el túnel usa tu propio celular. Si tu internet funciona bien, déjalo <b>Apagado</b>.</div>
+    <p style="color:var(--soft)">El TV le pasa el tráfico al celular por el Wi-Fi de la casa, y el celular lo saca a internet por una VPN. Tu proveedor de internet solo ve tráfico cifrado hacia la VPN.</p>
+    <div class="cmd"><code>TV → Wi-Fi de la casa → celular → VPN → internet</code></div>
+
+    <div class="grid2" style="align-items:start;margin-top:16px">
+      <div class="card">
+        <h3>En el celular (Android)</h3>
+        <ol class="steps">
+          <li>Conéctalo al <b>mismo Wi-Fi</b> que el TV.</li>
+          <li>Instala y activa una app de <b>VPN</b>, por ejemplo <b>1.1.1.1 (WARP)</b> de Cloudflare, que es gratis.</li>
+          <li>Instala una app de <b>servidor proxy</b> que comparta por Wi-Fi, por ejemplo <b>Every Proxy</b>. Enciende el proxy <b>SOCKS5</b> (o HTTP).</li>
+          <li>Anota la <b>IP</b> y el <b>puerto</b> que muestra la app, por ejemplo <code>192.168.1.50:1080</code>.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>En el TV (XuperMH)</h3>
+        <ol class="steps">
+          <li>Abre <b>Ajustes → Configuración global → Túnel (proxy) → Configurar…</b></li>
+          <li>Elige <b>SOCKS5</b> (o HTTP, igual que en el celular).</li>
+          <li>En <b>Servidor</b> escribe la IP y el puerto del celular, por ejemplo <code>192.168.1.50:1080</code>. Usuario y clave solo si la app del celular los pide.</li>
+          <li>Pulsa <b>Probar</b>. Debe decir <b>Túnel OK</b>.</li>
+          <li>Pulsa <b>Guardar</b> y luego <b>Encendido</b>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:16px">
+      <b>Para que funcione:</b> el celular tiene que quedarse prendido, en la casa, con la VPN y el proxy abiertos. Mejor si está cargando.
+      Si el router se reinicia, la IP del celular puede cambiar: revísala en la app y corrígela en el TV.
+      Si el túnel deja de responder, XuperMH sale directo por tu internet para que el canal no se corte.
+    </div>
+
+    <details><summary>¿Y si el celular solo está en el Wi-Fi, sin VPN?</summary><p>Funciona, pero no sirve: el celular sale por el mismo internet de la casa, así que el bloqueo o la lentitud siguen igual. Hace falta la VPN.</p></details>
+    <details><summary>¿Y si comparto internet desde el celular (punto de acceso)?</summary><p>Eso no usa el túnel: el TV se conecta directo al celular. Si el celular comparte sus <b>datos móviles</b>, el TV sale por la compañía del celular y gasta datos. Muchos celulares no pueden estar en el Wi-Fi y compartir Wi-Fi a la vez, y en la mayoría la VPN no cubre lo que se comparte.</p></details>
+    <details><summary>¿Sirve para ver contenido de otro país?</summary><p>No es para eso. El túnel es solo para cuando tu proveedor de internet bloquea o frena la conexión.</p></details>
 
     <h3 style="margin-top:34px">Preguntas frecuentes</h3>
     <details><summary>¿Qué TVs son compatibles?</summary><p>TV LG con webOS que tengan la app Developer Mode de LG. Está probada en webOS 1 a 6. Los TV más viejos pueden necesitar el Modo fluido para algunos videos.</p></details>
